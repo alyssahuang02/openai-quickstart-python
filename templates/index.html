@@ -9,13 +9,16 @@
 </head>
 
 <body>
-  <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
-  <h3>Name my pet</h3>
+  <img src="{{ url_for('static', filename='quotes.png') }}" class="icon" />
+  <h3>Give me a quote</h3>
   <form action="/" method="post">
-    <input type="text" name="animal" placeholder="Enter an animal" required />
-    <input type="submit" value="Generate names" />
+    <input type="text" name="mood" placeholder="Enter a mood" required />
+    <input type="text" name="language" placeholder="Enter a language" required />
+    <input type="submit" value="Generate quotes" />
   </form>
   {% if result %}
-  <div class="result">{{ result }}</div>
+  {% for quote in result%}
+    <div class="result">{{ quote }}</div>
+  {% endfor %}
   {% endif %}
 </body>
